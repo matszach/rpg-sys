@@ -1,0 +1,24 @@
+@import "var.less";
+
+.rstatblock {
+    box-shadow: @bs-small;
+    border: 1px solid @col-rtable-border;
+    padding: @margin-small;
+    margin: @margin-small;
+    display: inline-block;
+    vertical-align: top; /* !!! */
+}
+
+.rstatblock { width: calc(33% - 19px)}
+@media only screen and (max-width: 1200px) {
+    .rstatblock {width: calc(50% - 23px)}
+}
+@media only screen and (max-width: 700px) {
+    .rstatblock { width: calc(100% - 20px)}
+}
+
+.rstatblock-hr {
+    border: none;
+    border-top: 1px solid @col-rtable-border;
+    margin: 2px;
+}

@@ -1,0 +1,43 @@
+@import "var.less";
+
+.rsection {
+    margin: @margin-medium;
+    width: calc(100% - 2 * @margin-medium);
+    background-color: @col-rsection-bottom;
+}
+
+.rsection-top {
+    background-color: @col-rsection-top;
+}
+
+.rsection-padded {
+    padding: @margin-medium;
+}
+
+.rsection-title {
+    margin: @margin-small;
+}
+
+.rsection-collapse-button {
+    width: 20px;
+    height: 20px;
+    background-color: @col-rsection-button;
+    color: @col-text;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: bold;
+}
+
+.rsection-collapse-button:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+.rsection-collapse-button:active {
+    transform: scale(0.9);
+    filter: brightness(0.9);
+}
+

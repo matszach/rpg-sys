@@ -1,0 +1,26 @@
+@import "var.less";
+
+.rtable {
+    box-shadow: @bs-small;
+    border-collapse: collapse;
+    margin: @margin-medium;
+}
+
+.rtable th, .rtable td{
+    border: 1px solid @col-rtable-border;
+}
+
+.rtable td {
+    padding: 1px;
+}
+
+.rtable th {
+    padding: 2px;
+    background-color: @col-rtable-th;
+    cursor: pointer;
+}
+
+.rtable th:hover {
+    filter: brightness(1.4);
+}
+
