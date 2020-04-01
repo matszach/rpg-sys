@@ -9,7 +9,6 @@ function renderNewSection(title, jsx) {
 }
 
 renderNewSection('Attributes', <RTable content={getAttributes()} />);
-renderNewSection('Weapons', <RTable content={getWeapons()} />);
 renderNewSection('Skills', 
     <div>
         <RParagraph title='What are skills?' content={getSkillsInfo()} />
@@ -20,6 +19,13 @@ renderNewSection('Skills',
 );
 renderNewSection('Abilities', <RTable content={getAbilities()} />);
 renderNewSection('Spells', <RTable content={getSpells()} />);
+renderNewSection('Equipment', <RTable content={getWeapons()} />);
+renderNewSection('Adventuring', 
+    <div>
+        <RParagraph title='Travel' content={getTravellingRules()} />
+        <RParagraph title='Resting' content={getRestRules()} />
+    </div>
+);
 renderNewSection('NPCs', <RStatblockSet npcs={getNpcs()} />);
 
 

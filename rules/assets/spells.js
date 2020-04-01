@@ -8,7 +8,8 @@ const CAT = {
     DESTRUCTION: 'Destruction',
     SUMMONING: 'Summoning',
     NECROMANCY: 'Necromancy',
-    CONTROL: 'Control'
+    CONTROL: 'Control',
+    MIND_AFFECTING: 'Mind affecting'
 };
 
 function getSpells() {
@@ -19,16 +20,17 @@ function getSpells() {
             // transformation
             ['Beastspeech', '1', CAT.TRANSFORMATION, '1', 'Instant', '1 hour', '-', 'Self', '-',
                 'You gain the ability to communicate with animals.'],
+            ['Beastshape', '1', CAT.TRANSFORMATION, '2', 'Instant', '1 hour', '-', 'Self', '-',
+                'You transform into a Beast of Tier no higher than your Magic level. ' + 
+                'You keep your Charisma, Intellect, Will and Magic levels. ' + 
+                'In your new form you cannot cast any spells. ' + 
+                'Upon transforming back any damage you took in your Beast form is transferred to your original form. ' +  
+                'If your Beast form is slaing you transform back to your original form. ' + 
+                'Tranforming back willingly counts as a casting of an Instant spell and it cannot leave you at less than 1 HP.'],
             ['Claws', '1', CAT.TRANSFORMATION, '1', 'Instant', '1 hour', '-', 'Self', '-',
                 'You grow a pair of claws and can use them as melee weapons that deal 1d8 physical damage.'],
             ['Wings', '2', CAT.TRANSFORMATION, '1', 'Instant', '1 hour', '-', 'Self', '-',
                 'You grow a pair of wings and can use them to fly.'],
-
-            // invisibility
-            ['Vanish', '1', CAT.ILLUSION, '1', 'Instant', '1 minute', '-', 'Self', '-',
-                'You turn invisible until you attack, cast another spell or take any damage.'],
-            ['Invisibility', '2', CAT.ILLUSION, '1', 'Action', '1 hour', '-', 'Touch', '-',
-                'A creature turns invisible until it attacks, casts a spell or takes any damage.'],
 
             // blessing
             ['Bolster strength', '2', CAT.BLESSING, '1', 'Action', '8 hours', '-', 'Touch', '-',
@@ -76,10 +78,12 @@ function getSpells() {
                 'While it stays open any creature or item may instantly cross between those two loactions. ' + 
                 'You decide the shape of the portal, but are limited to a 10m x 10m area.'],
 
-            // item enchanting
+            // artificery
             ['Repair', '1', CAT.ARTIFICERY, '1', 'Action', '-', '-', 'Touch', '-',
                 'You repair a broken non magical item. The area repaired is limited to a 1m x 1m x 1m cube. ' +
                 'The spell can also be used to restore 1d4 + 1 HP to a Consruct type creature.'],
+            ['Open lock', '1', CAT.ARTIFICERY, '1', 'Action', '-', '-', 'Touch', '-',
+                'You open a single non-magical lock.'],
             ['Enchant weapon', '2', CAT.ARTIFICERY, '1', 'Action', '24 hours', '-', 'Touch', '-',
                 'A single weapon deals +1 physical damage.'],
             ['Imbue weapon', '2', CAT.ARTIFICERY, '1', 'Action', '1 hour', '-', 'Touch', '-',
@@ -92,8 +96,10 @@ function getSpells() {
                 'Creature\'s physical resistance increases by 1.'],
             ['Ironskin', '3', CAT.PROTECTION, '2', 'Action', '1 hour', '-', 'Touch', '-',
                 'Creature\'s physical resistance increases by 3.'],
-            ['Healing touch', '2', CAT.PROTECTION, '1', 'Action', '-', '-', 'Touch', '-',
-                'You restore 2d6 HP to a creature.'],
+            ['Accelerate healing', '1', CAT.PROTECTION, '1', '1 minute', '-', '-', 'Touch', '-',
+                'A creature regenerates 1 HP per hour over the course of the next 2d6 hours.'],
+            ['Healing touch', '3', CAT.PROTECTION, '2', 'Action', '-', '-', 'Touch', '-',
+                'You restore 2d4 HP to a creature.'],
             ['Cleanse', '2', CAT.PROTECTION, '1', 'Action', '-', '-', 'Touch', '-',
                 'You cure a creature of an ongoing poison or disease.'],
             ['Dispell', '3', CAT.PROTECTION, '2', 'Action', '', 'Attack (Magic vs Magic)', '20m', '-',
@@ -104,26 +110,48 @@ function getSpells() {
             // destruction, fire
             ['Fire arrow', '2', CAT.DESTRUCTION, '1', 'Action', '-', 'Attack (Magic vs Agility)', '20m', '-',
                 'You deal 2d8 fire damage.'],
+            ['Wall of fire', '3', CAT.DESTRUCTION, '2', 'Action', '1 minute', 'Save (Agility vs Magic)', '10m', '-',
+                'Choose a point in range. That point becomes a center of a 8m x 2m wall of fire. ' + 
+                'Any creature that starts or ends its turn in that wall or at any moment passes throught it ' + 
+                'must Save or take 2d4 fire damage. This effect can only occur once per turn for each individual creature.'],
             ['Conflagration', '4', CAT.DESTRUCTION, '2', 'Action', '-', 'Attack (Magic vs Agility)', '20m', '-',
                 'You deal 3d8 fire damage.'],
             // destruction, lightning
             ['Lighning strike', '2', CAT.DESTRUCTION, '1', 'Action', '-', 'Attack (Magic vs Agility)', 'Melee', '-',
                 'You deal 2d10 lightning damage.'],
+            ['Call lightning', '3', CAT.DESTRUCTION, '2', 'Action', '-', 'Save (Fortitude vs Magic)', '100m', '-',
+                'Choose a point in range. In 1d4 rounds a lightning will strike that point ' + 
+                'and any creature within 5 meters from that point must Save or take 4d8 damage. ' + 
+                'This spell fails if the any surface above the target point is there to intercept the lightning (eg. a roof or a ceiling).'],
             ['Lighning bolt', '4', CAT.DESTRUCTION, '2', 'Action', '-', 'Attack (Magic vs Agility)', '30m', '-',
                 'You deal 4d6 lightning damage.'],
             // destruction, cold
             ['Ice lance', '2', CAT.DESTRUCTION, '1', 'Action', '1 minute', 'Attack (Magic vs Agility)', '20m', '-',
                 'You deal 2d6 cold damage and reduce the target\'s Speed by 2.'],
+            ['Crystal shards', '3', CAT.DESTRUCTION, '2', 'Action', '-', 'Attack (Magic vs Agility)', '5m', '-',
+                'You make an attack against all targets in range, dealing 2d8 cold damage on each success.'],
             // destruction, darkness
             ['Necrotic ray', '2', CAT.DESTRUCTION, '1', 'Action', '-', 'Attack (Magic vs Fortitude)', '20m', '-',
                 'You deal 3d4 darkness damage.'],
+            ['Life drain', '2', CAT.DESTRUCTION, '1', 'Action', '-', 'Attack (Magic vs Fortitude)', '10m', '-',
+                'You deal 2d4 darkness damage and heal that much HP.'],
             // destruction, psychic
             ['Mind blast', '2', CAT.DESTRUCTION, '1', 'Action', '-', 'Attack (Magic vs Will)', '10m', '-',
                 'You deal 2d8 psychic damage.'],
             // destruction, light
+            ['Destroy evil', '2', CAT.DESTRUCTION, '1', 'Action', '-', 'Attack (Magic vs Will)', '10m', '-',
+                'You deal 3d6 light damage to an Undead or a Demon creature.'],
             // destruction, poison
+            ['Toxic cloud', '2', CAT.DESTRUCTION, '1', 'Action', '-', 'Save (Fortitude vs Magic)', '25m', '-',
+                'Choose a point in range. Any creature within 3 metres from that point must Save or take 2d4 poison damage.'],
             // destruction, acid
+            ['Acid spatter', '2', CAT.DESTRUCTION, '1', 'Action', '-', 'Save (Agility vs Magic)', '15m', '-',
+                'All creatures in a 3m x 3m area must Save or take 1d10 acid damage.'],
             // destruction, physical
+            ['Telekinetic throw', '2', CAT.DESTRUCTION, '1', 'Action', '-', 'Attack (Magic vs Agility)', '20m', '-',
+                'You throw an item in range, no heavier than 10kg, at a target in range dealing 2d6 physical damage.'],
+            ['Force blast', '3', CAT.DESTRUCTION, '2', 'Action', '-', 'Attack (Magic vs Strength)', '20m', '-',
+                'A creature takes 3d6 physical damage and is knocked prone.'],
 
             // summoning
             ['Summon elemental', '2', CAT.SUMMONING, '2', 'Action', '1 hour', '-', '5m', '-',
@@ -178,7 +206,40 @@ function getSpells() {
             ['Tar', '2', CAT.CONTROL, '1', 'Action', '1 minute', '-', '20m', '-',
                 'You create a 5m x 5m area of sticky tar. Any creature moving through that area has it\'s Speed reduced by 3.'],
             ['Fog', '1', CAT.CONTROL, '1', 'Action', '1 minute', '-', '20m', '-',
-                'You create a 10m x 10m x 5m area of thick fog. Any creature moving through that area can\'s see anything past 3 metres.']
+                'You create a 10m x 10m x 5m area of thick fog. Any creature moving through that area can\'s see anything past 3 metres.'],
+
+
+            // mind affecting
+            ['Charm', '1', CAT.MIND_AFFECTING, '1', 'Action', '1 hour', 'Attack (Magic vs Will)', '5m', '-',
+                'A creature of your choice turns friendly towards you for the duration of the spell.' + 
+                'It will asist and aid you but will not take any great risks for you.'],
+            ['Enthrall', '3', CAT.MIND_AFFECTING, '3', 'Action', '8 hours', 'Attack (Magic vs Will)', '5m', '-',
+                'A creature of your choice serves you for duration of the spell, but ignores any orders to kill or hurt itself. ' + 
+                'The effects of the spell are obvious to onlookers but the creature ignores them. ' +
+                'Once the effect ends the creature has no memory of the actions it took while enthralled.'],
+            ['Dominate', '5', CAT.MIND_AFFECTING, '5', 'Action', '24 hours', 'Attack (Magic vs Will)', '5m', '-',
+                'A creature of your choice serves you for duration of the spell. ' + 
+                'Once the effect ends the creature has no memory of the actions it took while enthralled.'],
+
+
+            // illusion
+            ['Guise', '1', CAT.ILLUSION, '1', 'Action', '1 hour', 'Save (Perception vs Magic)', 'Touch', '-',
+                'You alter the way a willing creature looks. ' + 
+                'The illusioon is limited to up to 1m from the target\'s body. ' + 
+                'A character that has a reason to suspect foul play may attempt to Save to see throught the illusion.'],
+            ['Mirage', '1', CAT.ILLUSION, '1', 'Action', '1 hour', 'Save (Perception vs Magic)', '100m', '-',
+                'You conjure a static images or alter the appearance of stationary objects in a 10m x 10m x 10m cubic area. ' + 
+                'The illusion, once created cannot be altered. ' + 
+                'A character that has a reason to suspect foul play may attempt to Save to see throught the illusion.'],
+            ['Voices', '1', CAT.ILLUSION, '1', 'Action', '1 hour', 'Save (Perception vs Magic)', '100m', '-',
+                'Pick a point in range. It becomes the source of sounds and voices, the nature of which  ' + 
+                'you have to specify fully the moment you cast this spell.'],
+
+            // invisibility
+            ['Vanish', '1', CAT.ILLUSION, '1', 'Instant', '1 minute', '-', 'Self', '-',
+                'You turn invisible until you attack, cast another spell or take any damage.'],
+            ['Invisibility', '2', CAT.ILLUSION, '1', 'Action', '1 hour', '-', 'Touch', '-',
+                'A creature turns invisible until it attacks, casts a spell or takes any damage.'],
 
             )
         .orderBy(0);
