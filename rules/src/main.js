@@ -19,7 +19,12 @@ renderNewSection('Skills',
 );
 renderNewSection('Abilities', <RTable content={getAbilities()} />);
 renderNewSection('Spells', <RTable content={getSpells()} />);
-renderNewSection('Equipment', <RTable content={getWeapons()} />);
+renderNewSection('Equipment',
+    <div>
+        <RTable content={getWeapons()} />     
+        <RTable content={getArmor()} />     
+    </div>
+);
 renderNewSection('Adventuring', 
     <div>
         <RParagraph title='Travel' content={getTravellingRules()} />

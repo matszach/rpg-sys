@@ -13,3 +13,15 @@ function getWeapons() {
     createWeaponGroup(['Bow', 'Crossbow'], '1d8', '30m', '2', '25g', weapons);
     return weapons.orderBy(0);
 }
+
+function createArmorGroup(names, physRes, price, other, target) {
+    names.forEach(n => target.addRecord(n, physRes, price, other));
+}
+
+function getArmor() {
+    let armors = new RTableContent().setHeaders('Name', 'Physical resistance', 'Price', 'Other');
+    createArmorGroup(['Leather armor', 'Chain mail', 'Padded armor'], '1', '25g', 'Requires Strength 1', armors);
+    createArmorGroup(['Scale mail', 'Plate mail'], '2', '100g', 'Requires Strength 2', armors);
+    createArmorGroup(['Shield'], '1', '25g', 'Requires Strength 1', armors);
+    return armors.orderBy(0);
+}

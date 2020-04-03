@@ -32,6 +32,7 @@ function getSpells() {
             ['Wings', '2', CAT.TRANSFORMATION, '1', 'Instant', '1 hour', '-', 'Self', '-',
                 'You grow a pair of wings and can use them to fly.'],
 
+
             // blessing
             ['Bolster strength', '2', CAT.BLESSING, '1', 'Action', '8 hours', '-', 'Touch', '-',
                 'Creature\'s Strength increases by 1.'],
@@ -66,6 +67,7 @@ function getSpells() {
             ['Empower will', '4', CAT.BLESSING, '1', 'Action', '1 hour', '-', 'Touch', '-',
                 'Creature\'s Will increases by 3.'],
             
+
             // teleport
             ['Blink', '2', CAT.TELEPORTATION, '1', 'Instant', '-', '-', '5m', '-',
                 'You teleport to a place in range that you can see.'],
@@ -78,6 +80,7 @@ function getSpells() {
                 'While it stays open any creature or item may instantly cross between those two loactions. ' + 
                 'You decide the shape of the portal, but are limited to a 10m x 10m area.'],
 
+
             // artificery
             ['Repair', '1', CAT.ARTIFICERY, '1', 'Action', '-', '-', 'Touch', '-',
                 'You repair a broken non magical item. The area repaired is limited to a 1m x 1m x 1m cube. ' +
@@ -88,6 +91,7 @@ function getSpells() {
                 'A single weapon deals +1 physical damage.'],
             ['Imbue weapon', '2', CAT.ARTIFICERY, '1', 'Action', '1 hour', '-', 'Touch', '-',
                 'A single weapon deals +1d4 damage of a type of your choice.'],
+
 
             // protection / healing
             ['Arcane shell', '2', CAT.PROTECTION, '1', 'Action', '1 hour', '-', 'Touch', '-',
@@ -107,6 +111,7 @@ function getSpells() {
                 'Permanent magical effects are not ended but instead supressed for 1 hour. ' +
                 'To end a permanent effect you must successfully cast this spell 3 times in a span of 1 hour.'],
             
+
             // destruction, fire
             ['Fire arrow', '2', CAT.DESTRUCTION, '1', 'Action', '-', 'Attack (Magic vs Agility)', '20m', '-',
                 'You deal 2d8 fire damage.'],
@@ -153,6 +158,7 @@ function getSpells() {
             ['Force blast', '3', CAT.DESTRUCTION, '2', 'Action', '-', 'Attack (Magic vs Strength)', '20m', '-',
                 'A creature takes 3d6 physical damage and is knocked prone.'],
 
+
             // summoning
             ['Summon elemental', '2', CAT.SUMMONING, '2', 'Action', '1 hour', '-', '5m', '-',
                 'You summon a Tier 2 or lower Elemental of your choice to serve you. ' +
@@ -186,6 +192,7 @@ function getSpells() {
                 'Any damage the homonculus takes you take also. ' + 
                 'The spell ends if the homonculus dies or you cast this spell again.'],
 
+
             // necromancy
             ['Raise undead', '2', CAT.NECROMANCY, '2', 'Action', '24 hours', '-', '5m', '-',
                 'You raise nearby corpse(s) as a Tier 1 or lower Undead of your choice to serve you. ' +
@@ -202,11 +209,19 @@ function getSpells() {
                 'You take controll over an Tier 3 or lower Undead creature. If the creature is already under your control and ' +
                 'you are using this spell to maintain it, then the spell succeeds automatically.'],
 
+
             // area controll
             ['Tar', '2', CAT.CONTROL, '1', 'Action', '1 minute', '-', '20m', '-',
                 'You create a 5m x 5m area of sticky tar. Any creature moving through that area has it\'s Speed reduced by 3.'],
             ['Fog', '1', CAT.CONTROL, '1', 'Action', '1 minute', '-', '20m', '-',
                 'You create a 10m x 10m x 5m area of thick fog. Any creature moving through that area can\'s see anything past 3 metres.'],
+            ['Dimension chain', '2', CAT.CONTROL, '1', 'Action', '24 hours', 'Attack (Magic vs Magic)', '20m', '-',
+                'A creature cannot teleport or be teleported in any way and it\'s Speed is redued by 1.'],
+            ['Slow', '1', CAT.CONTROL, '1', 'Action', '1 minute', 'Attack (Magic vs Agility)', '30m', '-',
+                'A creature\'s speed is reduced by 3.'],
+            ['Magnetic shackles', '2', CAT.CONTROL, '2', 'Action', '1 hour', 'Save (Agility vs Magic)', '30m', '-',
+                'Choose a point in range. Any creature in 5m radius from that point that fails the Save are bound together with magical shackles. ' + 
+                'Those creatures cannot move more than 10m away from one another for the duration of the spell. Their Speed is also reduced by 2.'],
 
 
             // mind affecting
@@ -234,8 +249,6 @@ function getSpells() {
             ['Voices', '1', CAT.ILLUSION, '1', 'Action', '1 hour', 'Save (Perception vs Magic)', '100m', '-',
                 'Pick a point in range. It becomes the source of sounds and voices, the nature of which  ' + 
                 'you have to specify fully the moment you cast this spell.'],
-
-            // invisibility
             ['Vanish', '1', CAT.ILLUSION, '1', 'Instant', '1 minute', '-', 'Self', '-',
                 'You turn invisible until you attack, cast another spell or take any damage.'],
             ['Invisibility', '2', CAT.ILLUSION, '1', 'Action', '1 hour', '-', 'Touch', '-',

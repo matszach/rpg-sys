@@ -11,13 +11,15 @@ function getAbilities() {
             ['Dash', '1', 'Instant', '-',
                 'Move up to 3 metres.'],       
             ['Block', '1', 'Reaction', '-',
-                'Upon taking physical damage you reduce the damage taken by 3 (or 5 if you are using a shield).'],
+                'Upon taking physical damage you reduce the damage taken by 2 (or 4 if you are using a shield).'],
             ['Evasion', '2', 'Reaction', '-',
                 'Upon taking any damage you reduce it by half (rounding down).'],
             ['Precise attack', '1', 'Action', '-',
                 'You make a weapon attack. It ignores any disadvantages, cover bonuses or physical resistances.'],
             ['Powerful attack', '1', 'Action', '-',
-                'You make a weapon attack. It deals additional 1d4 physical damage.'],
+                'You make a weapon attack. It deals an additional 1d4 physical damage.'],
+            ['Maiming attack', '1', 'Action', '-',
+                'You make a weapon which, if successful, also reduces your target\'s Speed by 2 for 1 minute.'],
             ['Multiattack', '2', 'Action', '-',
                 'You make 2 weapon attacks instead of 1.'],
             ['Break limits', '1', 'Instant', '-',
@@ -25,10 +27,10 @@ function getAbilities() {
             ['Cleave', '1', 'Action', '-',
                 'You can make up to 3 melee weapon attacks, each against a different target in range, instead of 1.'],
             ['Forceful attack', '1', 'Action', '-',
-                'You make a weapon which, if successful, pushes your target back up to 3 metres.'],
+                'You make a weapon which, if successful, also pushes your target back up to 3 metres.'],
             ['Disarming attack', '1', 'Action', '-',
-                'You make a weapon which, if successful, forces your target to drop one item they are holding.'],
+                'You make a weapon which, if successful, also forces your target to drop one item they are holding.'],
             ['Sneak attack', '1', 'Action', '',
-                'You make a weapon which, if successful and made with advantage, deals additional 2d6 damage.'])
+                'You make a weapon which, if made with advantage, deals an additional 2d6 damage.'])
         .orderBy(0);
 }
