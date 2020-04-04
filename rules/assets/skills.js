@@ -4,6 +4,7 @@ function getSkills() {
         .addRecords(
             ['Speak language (name, eg. elvish, dwarven) *', '-'],
             ['Use weapon (type, eg. bow, longsword, dagger) **', '-'],
+            ['Favoured enemy (type, eg. vampires, trolls, dragons) ***', '-'],
             ['Move heavy object', '-'],
             ['Swim', '-'],
             ['Climb', '-'],
@@ -41,7 +42,7 @@ function getSkillsInfo() {
         Skills grant your character a bonus to any Tests made to apply that skill.
         The GM is the final arbiter if whether or not that bonus applies.
         The higher the level of the skill (I/II/III) the higher the bonus you recieve (+3/+5/+6).
-        Whatever the action you are takig, no more that one skill bonus may be applied to a single Test.`
+        Whatever the action you are taking, no more that one skill bonus may be applied to a single Test.`
     );
 }
 
@@ -57,6 +58,14 @@ function getSkillsLanguagesInfo() {
     return (
         `Language skills are an exception. They allow you to speak, read and write in a seleted language. 
         The higher the level of the skill (I/II/III) the more proficient in that language you become (basic/intermidiate/advanced(or native)).`
+    );
+}
+
+function getSkillsFavouredEnemyInfo() {
+    return (
+        `Favoured enemy skills are an exception. Each level of the skill (I/II/III) grants you the usual (+3/+5/+6) 
+        skill bonus to make any checks to track or recall knowledge on your favoured enemies and allow you to deal 
+        extra (+1/+2/+3) damage to them wiyth your weapon attacks and spells.`
     );
 }
 

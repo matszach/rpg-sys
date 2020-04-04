@@ -15,19 +15,28 @@ class RSection extends React.Component {
         });
     };
 
+    renderToggler() {
+        return (
+            <button className='rsection-collapse-button' onClick={() => this.toggle()}>
+                {this.state.collapsed ? '+' : '-'}
+            </button>
+        );
+    }
+
     render() {
         return (
             <div className='rsection'>
                 <div className='rsection-top'>
-                    <button className='rsection-collapse-button' onClick={() => this.toggle()}>
-                        {this.state.collapsed ? '+' : '-'}
-                    </button>
-                    <label className='rsection-title'>
-                        {this.state.title}
-                    </label>
+                    {this.renderToggler()}
+                    <label className='rsection-title'>{this.state.title}</label>
                 </div>
                 <div className='rsection-bottom'>
-                    {this.state.collapsed ? '' : <div className='rsection-padded'>{this.state.innerJSX}</div>}
+                    {this.state.collapsed ? '' : (
+                        <div>
+                            <div className='rsection-padded'>{this.state.innerJSX}</div>
+                            {this.renderToggler()}
+                        </div>
+                    )}
                 </div>
             </div>
         );

@@ -2,6 +2,7 @@ const CAT = {
     TRANSFORMATION: 'Transformation',
     ILLUSION: 'Illusion',
     BLESSING: 'Blessing',
+    CURSE: 'Curse',
     TELEPORTATION: 'Teleportation',
     ARTIFICERY: 'Artificery',
     PROTECTION: 'Protection',
@@ -9,8 +10,23 @@ const CAT = {
     SUMMONING: 'Summoning',
     NECROMANCY: 'Necromancy',
     CONTROL: 'Control',
-    MIND_AFFECTING: 'Mind affecting'
+    MIND_AFFECTING: 'Mind affecting',
+    AUGURY: 'Augury'
 };
+
+
+function getSpellsInfo() {
+    return (
+        `A spell is a magical ability that costs 1 EXP to learn and you (usually) must spend MP to use.`
+    );
+}
+
+function getSpellCastingInfo() {
+    return (
+        `To cast a spell you must have at least one free hand and you must be able to speak. 
+        To onlookers and the targets of spells it\'s obvious that magic is beeing invoked, unless specified otherwise.`
+    );
+}
 
 function getSpells() {
     return new RTableContent()
@@ -66,6 +82,40 @@ function getSpells() {
                 'Creature\'s Magic increases by 3.'],
             ['Empower will', '4', CAT.BLESSING, '1', 'Action', '1 hour', '-', 'Touch', '-',
                 'Creature\'s Will increases by 3.'],
+
+            // curse
+            ['Weaken strength', '2', CAT.CURSE, '1', 'Action', '1 hour', 'Attack (Magic vs Will)', '15m', '-',
+                'Creature\'s Strength decreases by 1.'],
+            ['Weaken agility', '2', CAT.CURSE, '1', 'Action', '1 hour', 'Attack (Magic vs Will)', '15m', '-',
+                'Creature\'s Agility decreases by 1.'],
+            ['Weaken fortitude', '2', CAT.CURSE, '1', 'Action', '1 hour', 'Attack (Magic vs Will)', '15m', '-',
+                'Creature\'s Fortitude decreases by 1.'],
+            ['Weaken perception', '2', CAT.CURSE, '1', 'Action', '1 hour', 'Attack (Magic vs Will)', '15m', '-',
+                'Creature\'s Perception decreases by 1.'],
+            ['Weaken intellect', '2', CAT.CURSE, '1', 'Action', '1 hour', 'Attack (Magic vs Will)', '15m', '-',
+                'Creature\'s Intellect decreases by 1.'],
+            ['Weaken charisma', '2', CAT.CURSE, '1', 'Action', '1 hour', 'Attack (Magic vs Will)', '15m', '-',
+                'Creature\'s Charisma decreases by 1.'],
+            ['Weaken magic', '2', CAT.CURSE, '1', 'Action', '1 hour', 'Attack (Magic vs Will)', '15m', '-',
+                'Creature\'s Magic decreases by 1.'],
+            ['Weaken will', '2', CAT.CURSE, '1', 'Action', '1 hour', 'Attack (Magic vs Will)', '15m', '-',
+                'Creature\'s Will decreases by 1.'],
+            ['Cripple strength', '4', CAT.CURSE, '1', 'Action', '1 minute', 'Attack (Magic vs Will)', '15m', '-',
+                'Creature\'s Strength decreases by 3.'],
+            ['Cripple agility', '4', CAT.CURSE, '1', 'Action', '1 minute', 'Attack (Magic vs Will)', '15m', '-',
+                'Creature\'s Agility decreases by 3.'],
+            ['Cripple fortitude', '4', CAT.CURSE, '1', 'Action', '1 minute', 'Attack (Magic vs Will)', '15m', '-',
+                'Creature\'s Fortitude decreases by 3.'],
+            ['Cripple perception', '4', CAT.CURSE, '1', 'Action', '1 minute', 'Attack (Magic vs Will)', '15m', '-',
+                'Creature\'s Perception decreases by 3.'],
+            ['Cripple intellect', '4', CAT.CURSE, '1', 'Action', '1 minute', 'Attack (Magic vs Will)', '15m', '-',
+                'Creature\'s Intellect decreases by 3.'],
+            ['Cripple charisma', '4', CAT.CURSE, '1', 'Action', '1 minute', 'Attack (Magic vs Will)', '15m', '-',
+                'Creature\'s Charisma decreases by 3.'],
+            ['Cripple magic', '4', CAT.CURSE, '1', 'Action', '1 minute', 'Attack (Magic vs Will)', '15m', '-',
+                'Creature\'s Magic decreases by 3.'],
+            ['Cripple will', '4', CAT.CURSE, '1', 'Action', '1 minute', 'Attack (Magic vs Will)', '15m', '-',
+                'Creature\'s Will decreases by 3.'],
             
 
             // teleport
@@ -78,7 +128,7 @@ function getSpells() {
             ['Portal', '5', CAT.TELEPORTATION, '5', '10 minutes', '1 hour', '-', 'Unlimited', '-',
                 'You create a portal between your current location and a place in range that you can see or have been to at least once. ' + 
                 'While it stays open any creature or item may instantly cross between those two loactions. ' + 
-                'You decide the shape of the portal, but are limited to a 10m x 10m area.'],
+                'You decide the shape and appearance of the portal, but are limited to a 10m x 10m area.'],
 
 
             // artificery
@@ -92,6 +142,34 @@ function getSpells() {
             ['Imbue weapon', '2', CAT.ARTIFICERY, '1', 'Action', '1 hour', '-', 'Touch', '-',
                 'A single weapon deals +1d4 damage of a type of your choice.'],
 
+            // augury
+            ['Analyse item', '2', CAT.AUGURY, '1', 'Action', '-', '-', 'Touch', '-',
+                'You gain the information about a single item you are holding. ' +
+                'You know it\'s make-up, general purpose and age. ' + 
+                'If the item is or has in the past 24 hours been affected by magic you also gaint that information. ' + 
+                'Examples: \"This is an iron key, it has been created 20 years ago.\", ' + 
+                '\"This is an enchanted dragon scale mail armor, it has been forged 300 years ago.\"'], 
+            ['Analyse magic', '3', CAT.AUGURY, '2', '1 minute', '-', '-', 'Touch', '-',
+                'You gain the information about a single item you are holding. ' +
+                'You understand it\'s magical properties (if any) fully. '],
+            ['Omen', '2', CAT.AUGURY, '1', 'Action', '-', '-', 'Self', '-', 
+                'You gain an engimatic hint from your GM regaring events in near future. It may or may not be usefull. ' + 
+                'This spell can only be cast once every 24 hours. ' +  
+                'Examples: \"Beware men of the hand of red.\", \"The eyes of the forrest can protect you.\"'],
+            ['Divination shield', '3', CAT.AUGURY, '1', 'Action', '24 hours', '-', 'Touch', '-',
+                'A single item or creature is concealed from the effects of information-gathering magic (such as \"Analyze item\" spell). ' + 
+                'If it\'s a creature then thay are also always aware if such magic was attempted against them ' + 
+                '(eg. they know if a \"Locate creature\" spell targeting them has just been prevented).'],
+            ['Magic eye', '2', CAT.AUGURY, '1', 'Action', '1 hour', '-', '300m', '-',
+                'Choose a point in range. A magical eyeball appears there and, for the duration of the spell, ' + 
+                'you may percieve with it as if it was your own.'],
+            ['Locate creature', '2', CAT.AUGURY, '1', 'Action', '1 minute', 'Save (Will vs Magic)', 'Unlimited', '-',
+                'Name a creature. They then must Save or have their current location reveled to you (in a \"direction, distance\" form) to you. ' + 
+                'Whether or not they succeed they are unaware of this spell being cast. ' + 
+                'This spell also fails if the creature is in another dimension or if it does not exist in the first place.'],
+            ['Astral knowledge', '5', CAT.AUGURY, '5', '10 minutes', '1 hour', '-', 'Self', '-',
+                'For the duration of the spell you may ask the GM questions. For each question you recieve a \"yes or no\" answer ' + 
+                'and must then roll a d6. On a 1 you lose all your remaining MP and the spell ends.'],
 
             // protection / healing
             ['Arcane shell', '2', CAT.PROTECTION, '1', 'Action', '1 hour', '-', 'Touch', '-',
@@ -110,6 +188,9 @@ function getSpells() {
                 'You end one ongoing magical effect. To do so you must succeed on a Magic vs Magic attack against the source of the effect. ' +
                 'Permanent magical effects are not ended but instead supressed for 1 hour. ' +
                 'To end a permanent effect you must successfully cast this spell 3 times in a span of 1 hour.'],
+            ['Magic absorption', '3', CAT.PROTECTION, '1', 'Instant', 'Unlimited', '-', 'Self', '-',
+                'Any damage you take is halved (rounding up) and deducted from your MP instead of HP. ' + 
+                'The spell ends if your MP is fully depleted, you lose consciousness or you terminate the spell yourself.'],
             
 
             // destruction, fire
@@ -210,7 +291,7 @@ function getSpells() {
                 'you are using this spell to maintain it, then the spell succeeds automatically.'],
 
 
-            // area controll
+            // area control
             ['Tar', '2', CAT.CONTROL, '1', 'Action', '1 minute', '-', '20m', '-',
                 'You create a 5m x 5m area of sticky tar. Any creature moving through that area has it\'s Speed reduced by 3.'],
             ['Fog', '1', CAT.CONTROL, '1', 'Action', '1 minute', '-', '20m', '-',
@@ -227,14 +308,15 @@ function getSpells() {
             // mind affecting
             ['Charm', '1', CAT.MIND_AFFECTING, '1', 'Action', '1 hour', 'Attack (Magic vs Will)', '5m', '-',
                 'A creature of your choice turns friendly towards you for the duration of the spell.' + 
-                'It will asist and aid you but will not take any great risks for you.'],
+                'It will asist and aid you but will not take any great risks for you. ' + 
+                'Once the effect ends the creature has no idea that it had been charmed.'],
             ['Enthrall', '3', CAT.MIND_AFFECTING, '3', 'Action', '8 hours', 'Attack (Magic vs Will)', '5m', '-',
                 'A creature of your choice serves you for duration of the spell, but ignores any orders to kill or hurt itself. ' + 
                 'The effects of the spell are obvious to onlookers but the creature ignores them. ' +
                 'Once the effect ends the creature has no memory of the actions it took while enthralled.'],
             ['Dominate', '5', CAT.MIND_AFFECTING, '5', 'Action', '24 hours', 'Attack (Magic vs Will)', '5m', '-',
                 'A creature of your choice serves you for duration of the spell. ' + 
-                'Once the effect ends the creature has no memory of the actions it took while enthralled.'],
+                'Once the effect ends the creature has no memory of the actions it took while dominated.'],
 
 
             // illusion
