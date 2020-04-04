@@ -5,7 +5,7 @@ function getNewCharacteInfo() {
         The initial value of an attribute is 0, can be lowered to no less than -1 and can be raised no higher than (initially) 2. 
         Example attribute array for a brand new character could look like this: [2, 2, 1, 1, 0, 0, -1, -1]. 
         The character also recieves 10 EXP that can be spent on skills, spells and abilities. 
-        It is recomended that 3 (or at lest 2) of those are spent on a Speak Language(any) skill.`
+        It is recomended that 3 (or at least 2) of those are spent on a Speak Language(any) skill.`
     );
 }
 
@@ -20,7 +20,7 @@ function getRacesAndClassesInfo() {
 function getSizeAndSpeedInfo() {
     return (
         `Character default Speed is 5. Size is mostly descriptory, but may be used by the GM to make certain rulings 
-        (eg. \"Only Small characters can fit through that openings\", 
+        (eg. \"Only Small characters can fit through that opening\", 
         \"Only a Medium or larger creature can attempt to wield this huge warhammer\", 
         \"This rope bridge will very likely collapse under the orge, as it is a Large creature\", 
         \"You Medium sized knight cannot arm-wrestle the Giant sized titan\").`

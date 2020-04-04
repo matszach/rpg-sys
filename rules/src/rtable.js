@@ -24,9 +24,7 @@ class RTableContent {
     }
 
     addRecords(...records) {
-        records.forEach(r => {
-            this.addRecord(...r);
-        });
+        records.forEach(r => this.addRecord(...r));
         return this;
     }
 

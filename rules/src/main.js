@@ -69,8 +69,8 @@ renderNewSection('Adventuring',
 );
 renderNewSection('Combat', 
     <div>
-        <RParagraph title='Initiating combat' content={''} />
-        <RParagraph title='Actions in combat' content={''} />
+        <RParagraph title='Initiating combat' content={getInitiatingCombatInfo()} />
+        <RParagraph title='Actions in combat' content={getActionsInCombat()} />
         <RParagraph title='Damage and death' content={''} />
     </div>
 );
