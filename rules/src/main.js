@@ -17,7 +17,8 @@ renderNewSection('Foreword',
 renderNewSection('Characters', 
     <div>
         <RParagraph title='New characters' content={getNewCharacteInfo()} />
-        <a href="./../charsheet.pdf" download>Get the character sheet here</a>
+        <a href="./../charsheet.pdf" download>Get the character sheet ('.pdf') here</a>
+        <a href="./../charsheet.ods" download>Get the character sheet ('.ods') here</a>
         <RParagraph title='No races or classes?' content={getRacesAndClassesInfo()} />
         <RParagraph title='Size and Speed' content={getSizeAndSpeedInfo()} />
         <RParagraph title='Progression' content={getCharacterProgressionInfo()} />
