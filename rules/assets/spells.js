@@ -150,6 +150,13 @@ function getSpells() {
                 'A single weapon deals +1d4 damage of a type of your choice.'],
 
             // augury
+            ['Glyph of Vigilance', '1', CAT.AUGURY, '1', 'Action', '24 hours', '-', 'Touch', '-',
+                'You create an invisible rune on an item of your choice. For the duration of the spell you ' + 
+                'are always aware if the item is touched, moved, opened etc.'], 
+            ['Aura sight', '2', CAT.AUGURY, '1', 'Action', '1 hour', '-', 'Touch', '-',
+                'You can see traces of magical influece for the duration of the spell. ' + 
+                'You percieve any enchanted or inherently magical objects or creatures as faintly glowing. ' + 
+                'You see outlines of any invisible objects or creatures.'], 
             ['Analyse item', '2', CAT.AUGURY, '1', 'Action', '-', '-', 'Touch', '-',
                 'You gain the information about a single item you are holding. ' +
                 'You know it\'s make-up, general purpose and age. ' + 
@@ -203,6 +210,11 @@ function getSpells() {
             // destruction, fire
             ['Fire arrow', '2', CAT.DESTRUCTION, '1', 'Action', '-', 'Attack (Magic vs Agility)', '20m', '-',
                 'You deal 2d8 fire damage.'],
+            ['Wildfire', '3', CAT.DESTRUCTION, '2', 'Action', '-', '-', '100m', '-',
+                'You set a 10m x 10m area on fire. ' + 
+                'Any creature that starts, ends or passes throught the fire takes 1d4 fire damage. ' + 
+                'The fire is not inherently magical and you have no further control over it. ' + 
+                'It spreads and extinguishes as any mundane fire would.'],
             ['Wall of fire', '3', CAT.DESTRUCTION, '2', 'Action', '1 minute', 'Save (Agility vs Magic)', '10m', '-',
                 'Choose a point in range. That point becomes a center of a 8m x 2m wall of fire. ' + 
                 'Any creature that starts or ends its turn in that wall or at any moment passes throught it ' + 
@@ -233,6 +245,10 @@ function getSpells() {
             // destruction, psychic
             ['Mind blast', '2', CAT.DESTRUCTION, '1', 'Action', '-', 'Attack (Magic vs Will)', '10m', '-',
                 'You deal 2d8 psychic damage.'],
+            ['Spirit glaive', '3', CAT.DESTRUCTION, '2', 'Action', '-', 'Attack (Magic vs Agility)', '30m', '-',
+                'You deal 3d6 psychic damage.'],
+            ['Soul crush', '4', CAT.DESTRUCTION, '2', 'Action', '-', 'Attack (Magic vs Will)', '10m', '-',
+                'You deal 3d8 psychic damage.'],
             // destruction, light
             ['Destroy evil', '2', CAT.DESTRUCTION, '1', 'Action', '-', 'Attack (Magic vs Will)', '10m', '-',
                 'You deal 3d6 light damage to an Undead or a Demon creature.'],
@@ -252,6 +268,9 @@ function getSpells() {
 
 
             // summoning
+            ['Summon flame', '1', CAT.DESTRUCTION, '1', 'Instant', '8 hours', '-', 'Self', '-',
+                'You summon an orb of fire that floats and follows you around. ' + 
+                'It serves as a regular torch but does not require a hand to be carried.'],
             ['Summon elemental', '2', CAT.SUMMONING, '2', 'Action', '1 hour', '-', '5m', '-',
                 'You summon a Tier 2 or lower Elemental of your choice to serve you. ' +
                 'After the spell ends the creature vanishes.'],
