@@ -37,7 +37,14 @@ function getSpells() {
             ['Beastspeech', '1', CAT.TRANSFORMATION, '1', 'Instant', '1 hour', '-', 'Self', '-',
                 'You gain the ability to communicate with animals.'],
             ['Beastshape', '1', CAT.TRANSFORMATION, '2', 'Instant', '1 hour', '-', 'Self', '-',
-                'You transform into a Beast of Tier no higher than your Magic level. ' + 
+                'You transform into a Beast of Tier no higher than 2. ' + 
+                'You keep your Charisma, Intellect, Will and Magic levels. ' + 
+                'In your new form you cannot cast any spells. ' + 
+                'Upon transforming back any damage you took in your Beast form is transferred to your original form. ' +  
+                'If your Beast form is slaing you transform back to your original form. ' + 
+                'Tranforming back willingly counts as a casting of an Instant spell and it cannot leave you at less than 1 HP.'],
+            ['Beastshape, greater', '3', CAT.TRANSFORMATION, '3', 'Instant', '1 hour', '-', 'Self', '-',
+                'You transform into a Beast of Tier no higher than 4. ' + 
                 'You keep your Charisma, Intellect, Will and Magic levels. ' + 
                 'In your new form you cannot cast any spells. ' + 
                 'Upon transforming back any damage you took in your Beast form is transferred to your original form. ' +  
@@ -221,12 +228,16 @@ function getSpells() {
                 'You deal 3d4 darkness damage.'],
             ['Life drain', '2', CAT.DESTRUCTION, '1', 'Action', '-', 'Attack (Magic vs Fortitude)', '10m', '-',
                 'You deal 2d4 darkness damage and heal that much HP.'],
+            ['Curse of undeath', '4', CAT.DESTRUCTION, '3', 'Action', '-', 'Attack (Magic vs Fortitude)', '10m', '-',
+                'You deal 3d6 darkness damage. If the target dies it then raises as an undead, as per \"Raise undead\" spell.'],
             // destruction, psychic
             ['Mind blast', '2', CAT.DESTRUCTION, '1', 'Action', '-', 'Attack (Magic vs Will)', '10m', '-',
                 'You deal 2d8 psychic damage.'],
             // destruction, light
             ['Destroy evil', '2', CAT.DESTRUCTION, '1', 'Action', '-', 'Attack (Magic vs Will)', '10m', '-',
                 'You deal 3d6 light damage to an Undead or a Demon creature.'],
+            ['Magic void', '2', CAT.DESTRUCTION, '1', 'Action', '-', 'Attack (Magic vs Will)', '15m', '-',
+                'A creature loses 1d4 MP and takes 1 light damage for each MP lost.'],
             // destruction, poison
             ['Toxic cloud', '2', CAT.DESTRUCTION, '1', 'Action', '-', 'Save (Fortitude vs Magic)', '25m', '-',
                 'Choose a point in range. Any creature within 3 metres from that point must Save or take 2d4 poison damage.'],
@@ -250,7 +261,7 @@ function getSpells() {
             ['Summon beast', '1', CAT.SUMMONING, '1', 'Action', '1 hour', '-', '5m', '-',
                 'You summon a Tier 1 or lower Beast of your choice to serve you. ' +
                 'After the spell ends the creature vanishes.'],
-            ['Summon beast, greater', '1', CAT.SUMMONING, '3', 'Action', '1 hour', '-', '5m', '-',
+            ['Summon beast, greater', '3', CAT.SUMMONING, '3', 'Action', '1 hour', '-', '5m', '-',
                 'You summon a Tier 3 or lower Beast of your choice to serve you. ' +
                 'After the spell ends the creature vanishes.'],
             ['Summon swarm', '3', CAT.SUMMONING, '3', 'Action', '1 hour', '-', '5m', '-',
